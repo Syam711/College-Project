@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+</head>
+<body>
+    <h1>Super-Resolution Complete</h1>
+    <p><strong>Image ID:</strong> {{ image_id }}</p>
+    <p><strong>Original Image:</strong> {{ image_name }}</p>
+    <p><strong>Uploaded At:</strong> {{ uploaded_at }}</p>
+    <p><strong>Processed At:</strong> {{ processed_at }}</p>
+    <p><strong>Scale:</strong> {{ scale }}</p>
+
+    <h3>Original Image</h3>
+    <img src="{{ original_image_url }}" alt="Original Image" style="max-width: 300px;">
+
+    <h3>Enhanced Image</h3>
+    <img src="{{ sr_image_url }}" alt="Super-Resolved Image" style="max-width: 300px;">
+
+    <br>
+    <a href="{{ sr_image_url }}" download>
+        <button>Download Processed Image</button>
+    </a>
+    <a href="{% url 'upload_image' %}">
+        <button>Upload again</button>
+    </a>
+</body>
+</html>

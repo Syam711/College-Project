@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <script>
+        function showProcessingPage(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Hide upload form and show processing message
+            document.getElementById("uploadForm").style.display = "none";
+            document.getElementById("processingMessage").style.display = "block";
+
+            // Create FormData object for AJAX submission
+            var formData = new FormData(document.getElementById("uploadForm"));
+
+            // Send data to the server via AJAX
+            fetch("{% url 'upload_image' %}", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.body.innerHTML = html; // Replace page with response (Success/Error)
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("processingMessage").innerHTML = "<p>Error processing image.</p>";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload an Image</h1>
+
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*"><br>
+
+        <label for="scale">Select Scale:</label>
+        <select name="scale" id="scale">
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="custom">Custom Resize</option>
+        </select><br>
+
+        <div id="customResizeFields" style="display: none;">
+            <label for="width">Width:</label>
+            <input type="number" name="width" min="1"><br>
+            <label for="height">Height:</label>
+            <input type="number" name="height" min="1"><br>
+        </div>
+
+        <button type="submit" onclick="showProcessingPage(event)">Upload</button>
+    </form>
+
+    <!-- Processing Message -->
+    <div id="processingMessage" style="display: none;">
+        <h2>Processing Your Image...</h2>
+        <div class="loader"></div>
+        <p>Please wait while we enhance your image.</p>
+    </div>
+</body>
+</html>
