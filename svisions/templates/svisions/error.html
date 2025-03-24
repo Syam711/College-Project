@@ -1,8 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head><title>Error</title></head>
+<html lang="en">
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'svisions/css/error.css' %}">
+    
+</head>
 <body>
-    <h1>Error</h1>
-    <p>{{ error_message }}</p>
+    <div class="error-container">
+        <h1>Error Occurred</h1>
+        <p>{{ error_message }}</p>
+        <a href="{% url 'upload_image' %}">
+            <button>Try Again</button>
+        </a>
+    </div>
 </body>
 </html>

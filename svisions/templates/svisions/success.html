@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'svisions/css/success.css' %}">
 </head>
 <body>
     <h1>Super-Resolution Complete</h1>
-    <p><strong>Image ID:</strong> {{ image_id }}</p>
-    <p><strong>Original Image:</strong> {{ image_name }}</p>
-    <p><strong>Uploaded At:</strong> {{ uploaded_at }}</p>
-    <p><strong>Processed At:</strong> {{ processed_at }}</p>
-    <p><strong>Scale:</strong> {{ scale }}</p>
 
-    <h3>Original Image</h3>
-    <img src="{{ original_image_url }}" alt="Original Image" style="max-width: 300px;">
+    <!-- Image Comparison Container -->
+    <div class="comparison-container">
+        <div class="image-box">
+            <h3>Original Image</h3>
+            <div class="image-wrapper">
+                <img src="{{ original_image_url }}" alt="Original Image" class="comparison-image">
+            </div>
+        </div>
+        <div class="image-box">
+            <h3>Enhanced Image</h3>
+            <div class="image-wrapper">
+                <img src="{{ sr_image_url }}" alt="Enhanced Image" class="comparison-image">
+            </div>
+        </div>
+    </div>
 
-    <h3>Enhanced Image</h3>
-    <img src="{{ sr_image_url }}" alt="Super-Resolved Image" style="max-width: 300px;">
-
-    <br>
-    <a href="{{ sr_image_url }}" download>
-        <button>Download Processed Image</button>
-    </a>
-    <a href="{% url 'upload_image' %}">
-        <button>Upload again</button>
-    </a>
+    <!-- Action Buttons -->
+    <div class="button-group">
+        <a href="{{ sr_image_url }}" download class="btn">Download Processed Image</a>
+        <a href="{% url 'upload_image' %}" class="btn btn-secondary">Upload Another Image</a>
+    </div>
 </body>
 </html>

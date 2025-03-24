@@ -29,7 +29,7 @@ def upload_image(request):
                     return render(request, "svisions/error.html", {"error_message": "Invalid dimensions."})
             else:
                 # Use EDSR for predefined scales
-                scale = int(scale)  # Convert to integer
+                scale = int(scale) 
                 processed_image_path = apply_super_resolution(input_path, output_path, scale)
                 scale_label = f"{scale}x"
 
