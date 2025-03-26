@@ -1,0 +1,205 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Upload Container */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px; 
+    margin: 50px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Instructions */
+.instructions {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Upload Box */
+.upload-box {
+    border: 2px dashed #3498db;
+    padding: 20px;
+    margin: 10px auto;
+    cursor: pointer;
+    background: #eaf2ff;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.upload-box:hover {
+    background: #d4e8ff;
+}
+
+/* Custom File Input */
+.file-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #3498db;
+    transition: 0.3s;
+}
+
+/* Hide Default File Input */
+.file-input {
+    display: none;
+}
+
+/* Custom File Button */
+.file-button {
+    background: #3498db;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* File Name Text */
+.file-text {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Hover Effect */
+.file-label:hover {
+    border-color: #217dbb;
+}
+
+.file-button:hover {
+    background: #217dbb;
+}
+
+/* Scale Options Container */
+.scale-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Individual Scale Option */
+.scale-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: white;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+    width: 120px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Radio Circle (Unselected) */
+.radio-circle {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+/* Selected Option */
+.scale-option.selected {
+    background: #3498db;
+    color: white;
+    border: 2px solid #217dbb;
+}
+
+/* Selected State  */
+.scale-option.selected .radio-circle::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Custom Resize Fields */
+#customResizeFields {
+    display: none;
+    margin-top: 15px;
+}
+
+/* Styled Input Fields */
+.input-field {
+    width: 80px;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+.input-field:focus {
+    border-color: #3498db;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 250px;
+}
+
+.btn-primary:hover {
+    background: #217dbb;
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .upload-box {
+        max-width: 90%;
+    }
+
+    .scale-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .scale-option {
+        width: 100%;
+    }
+}

@@ -1,0 +1,24 @@
+# Python version 
+# Python 12 for torch compatability
+
+# Django framework
+django
+
+# PyTorch (latest version with CUDA support)
+torch
+
+# Super-Resolution library
+super-image
+
+# Hugging Face Hub
+huggingface-hub==0.25.0
+
+# opencv and pillow for Post processing
+opencv-python
+pillow
+
+# Other requirements
+numpy
+scikit-image
+lpips
+transformers

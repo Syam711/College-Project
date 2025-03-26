@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'enhancer/css/error.css' %}">
+    
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error Occurred</h1>
+        <p>{{ error_message }}</p>
+        <a href="{% url 'upload_image' %}">
+            <button>Try Again</button>
+        </a>
+    </div>
+</body>
+</html>

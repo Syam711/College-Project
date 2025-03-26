@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Success</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'enhancer/css/success.css' %}">
+</head>
+<body>
+    <h1>Super-Resolution Complete</h1>
+
+    <!-- Image Details -->
+    <div class="image-details">
+        <p><strong>Image ID:</strong> {{ image_id }}</p>
+        <p><strong>Original Image:</strong> {{ image_name }}</p>
+        <p><strong>Uploaded At:</strong> {{ uploaded_at }}</p>
+        <p><strong>Processed At:</strong> {{ processed_at }}</p>
+    </div>
+
+    <!-- Image Comparison Container -->
+    <div class="comparison-container">
+        <div class="image-box">
+            <h3>Original Image</h3>
+            <div class="image-wrapper">
+                <img src="/media/{{ image_name }}" alt="Original Image" class="comparison-image">
+            </div>
+        </div>
+        <div class="image-box">
+            <h3>Enhanced Image</h3>
+            <div class="image-wrapper">
+                {% if processed_image_url %}
+                    <img src="{{ processed_image_url }}" alt="Enhanced Image" class="comparison-image">
+                {% else %}
+                    <p style="color: red;">Error: Enhanced image not available</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+        {% if processed_image_url %}
+            <a href="{{ processed_image_url }}" download class="btn">Download Processed Image</a>
+        {% endif %}
+        <a href="{% url 'upload_image' %}" class="btn btn-secondary">Upload Another Image</a>
+    </div>
+</body>
+</html>

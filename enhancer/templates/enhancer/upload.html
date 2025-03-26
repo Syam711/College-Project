@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload Image</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'enhancer/css/upload.css' %}">
+    <script>
+        function selectOption(option) {
+            // Update hidden input for form submission
+            document.getElementById("selected-scale").value = option.replace("x", ""); // Convert "2x" → "2"
+            
+            // Remove 'selected' class from all options
+            document.querySelectorAll(".scale-option").forEach(opt => opt.classList.remove("selected"));
+            
+            // Add 'selected' class to clicked option
+            document.getElementById(option).classList.add("selected");
+
+            // Show custom resize fields if "Custom Resize" is selected
+            document.getElementById("customResizeFields").style.display = (option === "custom") ? "block" : "none";
+        }
+
+        function updateFileName(event) {
+            const fileInput = event.target;
+            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file chosen";
+            document.getElementById("file-text").textContent = fileName;
+        }
+
+        function showProcessingPage(event) {
+            event.preventDefault(); 
+
+            // Hide the upload form
+            document.getElementById("upload-container").style.display = "none";
+
+            // Show the processing screen
+            document.getElementById("processing-container").style.display = "block";
+
+            // Submit the form after a short delay
+            setTimeout(() => {
+                document.getElementById("uploadForm").submit();
+            }, 500);
+        }
+    </script>
+</head>
+<body>
+    <div id="upload-container" class="container">
+        <h1>Upload an Image</h1>
+        <p class="instructions">Select an image and choose enhancement options below.</p>
+
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Upload Box -->
+            <div class="upload-box">
+                <label class="file-label">
+                    <input type="file" name="image" accept="image/*" class="file-input" onchange="updateFileName(event)">
+                    <span class="file-button">Choose File</span>
+                    <span id="file-text" class="file-text">No file chosen</span>
+                </label>
+            </div>
+
+            <h3>Select Enhancement Scale:</h3>
+            <div class="scale-options">
+                <div class="scale-option" id="2x" onclick="selectOption('2x')">
+                    <span class="radio-circle"></span> 2X
+                </div>
+                <div class="scale-option" id="3x" onclick="selectOption('3x')">
+                    <span class="radio-circle"></span> 3X
+                </div>
+                <div class="scale-option" id="4x" onclick="selectOption('4x')">
+                    <span class="radio-circle"></span> 4X
+                </div>
+                <div class="scale-option" id="custom" onclick="selectOption('custom')">
+                    <span class="radio-circle"></span> Custom Resize
+                </div>
+            </div>
+
+            <!-- Hidden Input to Store Selected Scale -->
+            <input type="hidden" name="scale" id="selected-scale" value="2">
+
+            <!-- Custom Resize Fields (Initially Hidden) -->
+            <div id="customResizeFields" style="display: none;">
+                <label for="width">Width:</label>
+                <input type="number" name="width" min="1" class="input-field">
+                <label for="height">Height:</label>
+                <input type="number" name="height" min="1" class="input-field">
+            </div>
+
+            <button type="submit" class="btn-primary" onclick="showProcessingPage(event)">Upload</button>
+        </form>
+    </div>
+
+    <!-- Processing Page (Initially Hidden) -->
+    <div id="processing-container" class="processing-container" style="display: none;">
+        <h1>Processing Your Image...</h1>
+        <div class="loader"></div>
+        <p>Please wait while we enhance your image.</p>
+    </div>
+</body>
+</html>
