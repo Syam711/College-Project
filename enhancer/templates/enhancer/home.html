@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhance Your Image</title>
+  <link rel="stylesheet" href="{% static 'enhancer/css/home.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+        <h1 class="title">Enhance Your Image</h1>
+        <p class="tagline">Using deep super-resolution magic</p>
+        <a href="{% url 'upload_image' %}" class="cta-button">Get Started</a>
+        </div>
+        <div class="scroll-down">
+        <a href="#instructions">
+            <span class="arrow">&#8675;</span>
+            <p>Scroll for instructions</p>
+        </a>
+        </div>
+    </section>
+  
+
+<section class="instructions" id="instructions">
+    <div class="wave"></div>
+    <h2 class="section-title">Don't know how to use it? Follow these steps:</h2>
+    <ol class="steps">
+      <li><strong>Step 1:</strong> Upload your image (supported formats: <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>)</li>
+      <li><strong>Step 2:</strong> Choose the resolution scale (2x, 3x, 4x, or custom)</li>
+      <li><strong>Step 3:</strong> Download the enhanced image</li>
+    </ol>
+    <p class="note">💡 Note: Enhanced images may have significantly larger file sizes due to increased resolution.</p>
+    <div class="centered-btn">
+      <a href="{% url 'upload_image' %}" class="cta-button secondary">Start Enhancing Now</a>
+    </div>
+  </section>
+  
+
+  <footer class="footer">
+    <hr class="footer-divider" />
+    <div class="footer-container">
+      <div class="footer-left">
+        <h4 class="footer-title">Team Members</h4>
+        <ul class="team-list">
+          <li>Syam Kumar</li>
+          <li>Indhu</li>
+          <li>Siva Balaji</li>
+          <li>Hanisha</li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <h4 class="footer-title">Project Guide</h4>
+        <p class="guide">Ass. Prof. Ms. Lavanya</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+        <a href="https://github.com/Syam711" target="_blank">GitHub</a>
+        &nbsp;|&nbsp;
+        <a href="https://linkedin.com/in/basyamsyamkumar" target="_blank">LinkedIn</a>
+      </div>
+      
+  </footer>
+  
+  
+
+</body>
+</html>
