@@ -9,6 +9,9 @@ from .post_processing import apply_post_processing  # Import post-processing mod
 import os
 import cv2
 
+def home_page(request):
+    return render(request, "enhancer/home.html")
+    
 # Allowed image formats
 ALLOWED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.bmp'}
 MAX_FILE_SIZE_MB = 10  # Max allowed file size (in MB)
