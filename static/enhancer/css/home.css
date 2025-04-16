@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .hero-content {
+    max-width: 700px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    animation: slideUp 1s ease forwards;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+    animation: fadeIn 2s ease-in;
+  }
+  
+  .cta-button {
+    background: #1abc9c;
+    padding: 0.9rem 2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: #16a085;
+    transform: scale(1.05);
+  }
+  
+  /* Instructions */
+  .instructions {
+    padding: 4rem 2rem;
+    background: #fff;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .steps {
+    list-style-type: decimal;
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .note {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #888;
+  }
+  
+  .centered-btn {
+    margin-top: 2.5rem;
+  }
+  
+  .cta-button.secondary {
+    background: #2980b9;
+  }
+  
+  .cta-button.secondary:hover {
+    background: #1c598a;
+  }
+  
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Scroll Down Arrow */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    width: 100%;
+    animation: fadeIn 3s ease;
+  }
+  
+  .scroll-down .arrow {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    color: white;
+    display: block;
+  }
+  
+  .scroll-down p {
+    margin: 0.3rem 0 0;
+    color: #ecf0f1;
+    font-size: 0.9rem;
+  }
+  
+  /* Bouncy Arrow Animation */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  
+  /* Background Wave Separator */
+  .wave {
+    background: url('https://svgshare.com/i/uUb.svg') repeat-x;
+    height: 80px;
+    margin-top: -30px;
+    background-size: contain;
+  }
+  
+  /* Animated Section Entry */
+  .instructions {
+    animation: slideUp 1.2s ease;
+  }
+  
+  .footer {
+    background-color: #1e2a38;
+    color: #e0e0e0;
+    padding: 3rem 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-divider {
+    border: none;
+    height: 1px;
+    background: #444;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+  
+  .team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .team-list li {
+    margin: 0.3rem 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .team-list li:hover {
+    color: #00cec9;
+  }
+  
+  .guide {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #bbbbbb;
+    font-weight: 500;
+  }
+  
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .footer-bottom a {
+    color: #00cec9;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .footer-bottom a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #00cec9;
+  }
+  
+  
+  /* Responsive layout */
+  @media (min-width: 640px) {
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-around;
+      text-align: left;
+    }
+  }
+  
+  
